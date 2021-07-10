@@ -1,56 +1,63 @@
 /* start of project, a variable will be assigned 3 strings and recalled the value randomly */
 
-const computerPlay = ['Rock', 'Paper', 'Scissors']
-
-// a function will be used to randomly generate one number from the array //
+const computerPlay = ['Rock', 'Paper', 'Scissors'] // scoring variables testing //
+let playerScore = 0;
+let computerScore = 0;
 
 function calculate() {
   let randomOutcome =  Math.floor(Math.random() * computerPlay.length)
   return randomOutcome
 }
+ 
+   let computerChoice = computerPlay[calculate()].toLowerCase()
+   let playerChoice = prompt('Welcome to RPS! to play, type Rock, Paper or Scissors', 'Rock or Paper or Scissors').toLowerCase();
+   
+   function computerSelect(){
+       return computerChoice;
+   }
+   function playerSelect(){
+       return playerChoice;
+   }
 
-/* the previous function outputs a number from the array length, 
-we need to extract the string value from the array using the previous function */
+// adding user interaction and comparing it with the computer choice //
 
-let computerChoice = computerPlay[calculate()].toLowerCase()
 
-// we need to add user interaction and compare it with the computer choice //
-
-let playerChoice = prompt('Welcome to RPS! to play, type Rock, Paper or Scissors', 'Rock or Paper or Scissors').toLowerCase()
 
 function play() {
+
+    computerSelect();
+    playerSelect();
     if (playerChoice == "rock" && computerChoice == "paper"){
-        alert('You lose! Paper beats rock!'); return computerScore +=1
+        alert('You lose! Paper beats rock!'); return ++ computerScore 
     }
     else if (playerChoice == 'rock' && computerChoice == 'scissors'){
-        alert('You win! Rock beats Scissors!'); return playerScore +=1
+        alert('You win! Rock beats Scissors!'); return ++ playerScore 
     }
     else if (playerChoice == "paper" && computerChoice == 'rock'){
-        alert('You Win! Paper beats Rock!'); return playerScore +=1
+        alert('You Win! Paper beats Rock!'); return ++ playerScore 
     }
     else if (playerChoice == "paper" && computerChoice == 'scissors'){
-        alert('You lose! Scissors beats Paper!'); return computerScore +=1
+        alert('You lose! Scissors beats Paper!'); return ++ computerScore 
     }
     else if (playerChoice == 'scissors' && computerChoice == 'rock'){
-        alert('You lose! Rock beats Scissors!'); return computerScore +=1
+        alert('You lose! Rock beats Scissors!'); return ++ computerScore 
     }
     else if (playerChoice == 'scissors' && computerChoice == "paper"){
-        alert('You win! Scissors beat Paper!'); return playerScore +=1
+        alert('You win! Scissors beat Paper!'); return ++ playerScore 
     }
     else {
-        alert('Draw! The computer chose the same choice!')
+        alert('Draw! Both you and the computer chose the same choice!');
     }
+    return scoreAlert;
 }
 
-// scoring variables testing //
+//console.log(play(), playerScore, computerScore) 
 
-let playerScore = 0;
-let computerScore = 0;
+let scoreAlert = alert(`Your score is ${playerScore} and the computer score is ${computerScore}`);
 
-// the base game is now complete, but still needs looping and score keeping // 
-
-console.log(play(), playerScore, computerScore)
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+function game(playerChoice, computerChoice){
+    play(); 
 }
+
+console.log(play())
+    
